@@ -1,9 +1,14 @@
 
 import Home from '../views/Home.vue'
-
+import Router from '../common/router'
 export default [
   {
     path: '/',
+    name: 'router',
+    component: Router
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home
   },
