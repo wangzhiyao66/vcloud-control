@@ -4,13 +4,13 @@
     </div>
 </template>
 <style lang="less" scoped>
-    .content-box {
-        float: left;
-        height: 100%;
-        max-width: calc(100%-125px);
-        border: 1px solid dodgerblue;
-        background: #999;
-    }
+    // .content-box {
+    //     float: left;
+    //     height: 100%;
+    //     width: calc(100%-130px);
+    //     border: 1px solid dodgerblue;
+    //     background: blueviolet;
+    // }
 </style>
 <script>
     export default {
