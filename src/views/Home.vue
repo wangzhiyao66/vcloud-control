@@ -1,6 +1,7 @@
 <template>
   <div class="main-box">
     <p>我是主页面</p>
+      <!-- <HelloWorld msg='123'/>>   -->
   </div>
 </template>
 <style lang="less" scoped>
@@ -13,13 +14,11 @@
 </style>
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-import side from "@/common/side.vue";
-import contents from "@/common/contents.vue";
+// import HelloWorld from "@/components/HelloWorld.vue";
 export default {
   name: "home",
   components: {
-    HelloWorld,
+    // HelloWorld,
   }
 };
 </script>

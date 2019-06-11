@@ -1,6 +1,6 @@
 <template>
   <div class="side-box">
-    <div class="icon-system" >
+    <div class="icon-system">
       <img src="../../src/assets/logo.png" @click="showMenu()" alt="欢迎来到这里" title="欢迎来到这里">
     </div>
 
@@ -9,7 +9,8 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="isCollapse">
+      :collapse="isCollapse"
+    >
       <div v-for="(item,i) in menu" v-bind:key="i">
         <!-- 有三级导航 -->
         <div v-if="item.children.length != 0">
@@ -32,19 +33,17 @@
         <div v-if="item.children.length == 0">
           <el-menu-item :index="item.id">
             <i :class="item.icon"></i>
-            <span slot="title">
-              {{ item.title }}
-            </span>
+            <span slot="title">{{ item.title }}</span>
           </el-menu-item>
         </div>
       </div>
     </el-menu>
 
     <!-- user  -->
-    <div class="user-icon">
-      <div class="login">
+    <div class="user-icon" >
+      <div class="login" @click="getMenu()">
         <el-tooltip class="item" effect="dark" content="退出登录" placement="right">
-            <i class="el-icon-user"></i>
+          <i class="el-icon-user" :class="{ mar10 : !isCollapse }"></i>
         </el-tooltip>
         <span v-if="!isCollapse">退出登录</span>
       </div>
@@ -57,7 +56,6 @@
   width: 200px;
   min-height: 450px;
 }
-
 
 .icon-system {
   margin: 20px 0;
@@ -98,8 +96,12 @@
   cursor: pointer;
 }
 
+.mar10 {
+  margin-left: 10px;
+}
 </style>
 <script>
+import axios from 'axios'; 
 export default {
   name: "side",
   data() {
@@ -163,6 +165,8 @@ export default {
     };
   },
   methods: {
+    // 禁止警告报错
+    /* eslint-disable */
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -171,7 +175,18 @@ export default {
     },
     showMenu() {
       this.isCollapse = !this.isCollapse;
+    },
+    getMenu() {
+      // axios.get('/src/assets/data/menu.json').then( res => {
+      //   console.log(res);        
+      // }).then( error => {
+      //   console.error(error);
+      // });
     }
+  },
+  created() {
+    // 获取数据；
+    this.getMenu();
   }
 };
 </script>

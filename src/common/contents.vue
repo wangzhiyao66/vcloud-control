@@ -1,8 +1,6 @@
 <template>
     <div class="content-box">
         <p>我是content页面</p>
-        <router-link to="/about">About</router-link>
-        <router-view/>
     </div>
 </template>
 <style lang="less" scoped>
@@ -14,11 +12,6 @@
 </style>
 <script>
     export default {
-        name: 'content',
-        data () {
-           return {
-                name : '王治尧'
-           }
-        }
+        name: 'content'
     }
 </script>

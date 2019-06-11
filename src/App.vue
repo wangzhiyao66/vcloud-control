@@ -2,7 +2,9 @@
   <div id="app">
     <div class="main-box">
       <side></side>
-      <contents></contents>
+      <contents>
+        <router-view/>
+      </contents>
     </div>
   </div>
 </template>
@@ -27,6 +29,7 @@ a {
 }
 </style>
 <script>
+
 import side from "@/common/side.vue";
 import contents from "@/common/contents.vue";
 export default {
