@@ -9,10 +9,6 @@
 </template>
 
 <style lang="less" scoped>
-body{
-  padding: 0 !important;
-  margin: 0 !important;
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
