@@ -32,7 +32,9 @@
         <div v-if="item.children.length == 0">
           <el-menu-item :index="item.id">
             <i :class="item.icon"></i>
-            <span slot="title">{{ item.title }}</span>
+            <span slot="title">
+              {{ item.title }}
+            </span>
           </el-menu-item>
         </div>
       </div>

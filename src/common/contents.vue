@@ -1,6 +1,8 @@
 <template>
     <div class="content-box">
-        <p>我是主页面</p>
+        <p>我是content页面</p>
+        <router-link to="/about">About</router-link>
+        <router-view/>
     </div>
 </template>
 <style lang="less" scoped>

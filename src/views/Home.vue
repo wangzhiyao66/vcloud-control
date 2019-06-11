@@ -1,7 +1,6 @@
 <template>
   <div class="main-box">
-    <side></side>
-    <contents></contents>
+    <p>我是主页面</p>
   </div>
 </template>
 <style lang="less" scoped>
@@ -21,8 +20,6 @@ export default {
   name: "home",
   components: {
     HelloWorld,
-    side,
-    contents
   }
 };
 </script>
