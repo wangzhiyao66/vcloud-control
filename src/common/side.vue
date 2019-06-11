@@ -57,6 +57,9 @@
   min-height: 450px;
 }
 
+.side-box {
+  border-right: 1px solid rgba(230, 230, 230, 1)
+}
 .icon-system {
   margin: 20px 0;
 }
