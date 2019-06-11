@@ -1,6 +1,6 @@
 <template>
     <div class="content-box">
-        <p>我是content页面</p>
+        <router-view/>
     </div>
 </template>
 <style lang="less" scoped>
@@ -11,7 +11,9 @@
     }
 </style>
 <script>
+    // 禁止警告报错
+    /* eslint-disable */
     export default {
-        name: 'content'
+        name: 'content',
     }
 </script>

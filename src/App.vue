@@ -2,9 +2,7 @@
   <div id="app">
     <div class="main-box">
       <side></side>
-      <contents>
-        <router-view/>
-      </contents>
+      <contents></contents>
     </div>
   </div>
 </template>

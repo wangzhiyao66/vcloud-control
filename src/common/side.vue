@@ -21,7 +21,7 @@
             </template>
             <div v-for="(itm,i) in item.children" v-bind:key="i">
               <el-menu-item-group>
-                <el-menu-item :index="itm.id">
+                <el-menu-item :index="itm.id" @click="goto(itm)">
                   <i :class="item.icon"></i>
                   {{ itm.title }}
                 </el-menu-item>
@@ -31,7 +31,7 @@
         </div>
         <!-- 没有三级导航 -->
         <div v-if="item.children.length == 0">
-          <el-menu-item :index="item.id">
+          <el-menu-item :index="item.id" @click="goto(item)">
             <i :class="item.icon"></i>
             <span slot="title">{{ item.title }}</span>
           </el-menu-item>
@@ -40,7 +40,7 @@
     </el-menu>
 
     <!-- user  -->
-    <div class="user-icon" >
+    <div class="user-icon">
       <div class="login" @click="getMenu()">
         <el-tooltip class="item" effect="dark" content="退出登录" placement="right">
           <i class="el-icon-user" :class="{ mar10 : !isCollapse }"></i>
@@ -101,7 +101,9 @@
 }
 </style>
 <script>
-import axios from 'axios'; 
+// 禁止警告报错
+/* eslint-disable */
+import axios from "axios";
 export default {
   name: "side",
   data() {
@@ -113,22 +115,22 @@ export default {
           id: "1",
           icon: "el-icon-location",
           title: "应用中心",
-          link: "",
+          link: "/home",
           falg: false,
           children: [
-            { id: "1.1", title: "主页", icon: "", link: "" },
-            { id: "1.2", title: "概览", icon: "", link: "" }
+            { id: "1.1", title: "主页", icon: "", link: "/home" },
+            { id: "1.2", title: "概览", icon: "", link: "/home" }
           ]
         },
         {
           id: "2",
           icon: "el-icon-menu",
           title: "节点管理",
-          link: "",
+          link: "/about",
           falg: false,
           children: [
-            { id: "2.1", title: "故事", icon: "", link: "" },
-            { id: "2.2", title: "任务", icon: "", link: "" }
+            { id: "2.1", title: "故事", icon: "", link: "/about" },
+            { id: "2.2", title: "任务", icon: "", link: "/about" }
           ]
         },
         {
@@ -165,8 +167,6 @@ export default {
     };
   },
   methods: {
-    // 禁止警告报错
-    /* eslint-disable */
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -178,10 +178,13 @@ export default {
     },
     getMenu() {
       // axios.get('/src/assets/data/menu.json').then( res => {
-      //   console.log(res);        
+      //   console.log(res);
       // }).then( error => {
       //   console.error(error);
       // });
+    },
+    goto(param) {
+      this.$router.push(param.link);
     }
   },
   created() {
