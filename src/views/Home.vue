@@ -15,11 +15,24 @@
 // @ is an alias to /src
 // 禁止警告报错
 /* eslint-disable */
-import HelloWorld from "@/components/HelloWorld.vue";
+// import HelloWorld from "@/components/HelloWorld.vue";
+import Service from '@/service'
 export default {
   name: "home",
-  components: {
-    HelloWorld
+  // components: {
+  //   HelloWorld
+  // },
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+
+  },
+  created() {
+    // const user = Service.getUserData();
+    // console.log('用户信息', user);
   }
 };
 </script>

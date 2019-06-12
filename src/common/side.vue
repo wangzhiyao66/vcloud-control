@@ -41,7 +41,7 @@
 
     <!-- user  -->
     <div class="user-icon">
-      <div class="login" @click="getMenu()">
+      <div class="login" @click="Signout()">
         <el-tooltip class="item" effect="dark" content="退出登录" placement="right">
           <i class="el-icon-user" :class="{ mar10 : !isCollapse }"></i>
         </el-tooltip>
@@ -107,6 +107,7 @@
 // 禁止警告报错
 /* eslint-disable */
 import axios from "axios";
+import Service from '@/service'
 export default {
   name: "side",
   data() {
@@ -121,7 +122,7 @@ export default {
           link: "/",
           falg: false,
           children: [
-            { id: "1.1", title: "主页", icon: "", link: "/" },
+            { id: "1.1", title: "主页", icon: "", link: "/home" },
             { id: "1.2", title: "概览", icon: "", link: "/overview" }
           ]
         },
@@ -188,6 +189,12 @@ export default {
     },
     goto(param) {
       this.$router.push(param.link);
+    },
+    
+    Signout() {
+      // 退出登录
+      Service.clear();
+      this.$router.push('/login');
     }
   },
   created() {

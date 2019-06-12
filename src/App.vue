@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <div class="main-box">
-      <side></side>
-      <contents></contents>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -22,19 +19,11 @@
   height: 100%;
   overflow: hidden;
 }
-a {
-  text-decoration: none !important;
-}
+
 </style>
 <script>
 
-import side from "@/common/side.vue";
-import contents from "@/common/contents.vue";
 export default {
   name: "app",
-  components: {
-    side,
-    contents
-  }
 };
 </script>
