@@ -12,10 +12,10 @@ import { LoginService } from '../service/login.service';
         :model="formLabelAlign"
       >
         <el-form-item label="用户名" prop="name">
-          <el-input v-model="formLabelAlign.name"></el-input>
+          <el-input v-model="formLabelAlign.name" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="formLabelAlign.password" autocomplete="off"></el-input>
+          <el-input type="password" v-model="formLabelAlign.password" placeholder="请输入密码" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="success" class="login-btn" @click="submitForm('formLabelAlign')">登录</el-button>
