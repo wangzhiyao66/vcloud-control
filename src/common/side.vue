@@ -118,51 +118,51 @@ export default {
           id: "1",
           icon: "el-icon-location",
           title: "应用中心",
-          link: "/home",
+          link: "/",
           falg: false,
           children: [
-            { id: "1.1", title: "主页", icon: "", link: "/home" },
-            { id: "1.2", title: "概览", icon: "", link: "/home" }
+            { id: "1.1", title: "主页", icon: "", link: "/" },
+            { id: "1.2", title: "概览", icon: "", link: "/overview" }
           ]
         },
         {
           id: "2",
           icon: "el-icon-menu",
           title: "节点管理",
-          link: "/about",
+          link: "/story",
           falg: false,
           children: [
-            { id: "2.1", title: "故事", icon: "", link: "/about" },
-            { id: "2.2", title: "任务", icon: "", link: "/about" }
+            { id: "2.1", title: "故事", icon: "", link: "/story" },
+            { id: "2.2", title: "任务", icon: "", link: "/task" }
           ]
         },
         {
           id: "3",
           icon: "el-icon-document",
           title: "活动记录",
-          link: "",
+          link: "/problem",
           falg: false,
           children: [
-            { id: "3.1", title: "问题", icon: "", link: "" },
-            { id: "3.2", title: "活动", icon: "", link: "" }
+            { id: "3.1", title: "问题", icon: "", link: "/problem" },
+            { id: "3.2", title: "活动", icon: "", link: "/activity" }
           ]
         },
         {
           id: "4",
           icon: "el-icon-setting",
           title: "设置中心",
-          link: "",
+          link: "/version",
           falg: false,
           children: [
-            { id: "4.1", title: "版本", icon: "", link: "" },
-            { id: "4.2", title: "设置", icon: "", link: "" }
+            { id: "4.1", title: "版本", icon: "", link: "/version" },
+            { id: "4.2", title: "设置", icon: "", link: "/setting" }
           ]
         },
         {
           id: "5",
           icon: "el-icon-collection",
           title: "用户中心",
-          link: "",
+          link: "/usercenter",
           falg: false,
           children: []
         }
