@@ -1,0 +1,1 @@
+export const baseURL = process.NODE_ENV === 'production'? '/dev' : '/serve_url';
