@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios"
-import { baseURL } from './config'
 export default class HttpRequest {
+    // 禁止警告报错
+    /* eslint-disable */
 
-    constructor( baseUrl = baseURL) {
-        this.baseURL = baseURL;
+    constructor() {
         this.queue = {}
     }
 
-    getInsideconfig () {
-        const config = { 
+    getInsideconfig() {
+        const config = {
             // 添加全局请求配置
         };
         return config;
@@ -18,9 +18,10 @@ export default class HttpRequest {
     // 添加 拦截器
     interceptors(instance, url) {
         // 请求拦截器
-        instance.interceptors.request.use( config => {
+        instance.interceptors.request.use(config => {
             // 添加全局控制
-            if ( !Object.keys(this.queue).length ) {
+            console.log("请求拦截器", config);
+            if (!Object.keys(this.queue).length) {
                 // 开启弹窗
             }
 
@@ -30,11 +31,11 @@ export default class HttpRequest {
             return Promise.reject(error);
         }),
         // 响应拦截器
-        instance.interceptors.response.use( res => {
+        instance.interceptors.response.use(res => {
             // 添加全局控制
             delete this.queue[url];
-            const { data , status } = res;
-            return { data , status } ;
+            const { data, status } = res;
+            return { data, status };
             // return res;
         }, error => {
             delete this.queue[url];
@@ -44,7 +45,7 @@ export default class HttpRequest {
 
     request(options) {
         const instance = axios.create();
-        options = Object.assign(this.getInsideconfig(), options );
+        options = Object.assign(this.getInsideconfig(), options);
         this.interceptors(instance, options.url)
         return instance(options);
     }

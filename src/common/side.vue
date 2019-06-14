@@ -107,6 +107,7 @@
 // 禁止警告报错
 /* eslint-disable */
 import axios from "axios";
+import Api from '@/api'
 import Service from '@/service'
 export default {
   name: "side",
@@ -181,11 +182,15 @@ export default {
       this.isCollapse = !this.isCollapse;
     },
     getMenu() {
-      // axios.get('/src/assets/data/menu.json').then( res => {
-      //   console.log(res);
-      // }).then( error => {
-      //   console.error(error);
-      // });
+      Api.request({
+        url: '/data/menu.json',
+        method: 'post',
+        data: {
+          name: '1',
+        }
+      }).then( res => {
+        console.log('res' , res);
+      });
     },
     goto(param) {
       this.$router.push(param.link);
@@ -197,7 +202,7 @@ export default {
       this.$router.push('/login');
     }
   },
-  created() {
+  created(){
     // 获取数据；
     this.getMenu();
   }
