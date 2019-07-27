@@ -3,7 +3,9 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-if (process.env.NODE_ENV !== 'production') { require('./mock')}
+// if (process.env.NODE_ENV !== 'production') { require('./mock')}
+// 更新服务端部署
+require('./mock');
 
 // Element 插件库
 import ElementUI from 'element-ui';
