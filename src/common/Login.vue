@@ -2,7 +2,7 @@ import { LoginService } from '../service/login.service';
 <template>
   <div class="login-box">
     <div class="form">
-      <p class="title-text">欢迎来到ALM系统！</p>
+      <p class="title-text">欢迎来到Control系统！</p>
       <el-form
         :label-position="labelPosition"
         status-icon
@@ -37,7 +37,7 @@ import { LoginService } from '../service/login.service';
 .title-text {
   font-size: 18px;
   font-weight: bold;
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   text-align: left;
   padding-left: 80px;
   margin: 0 0 30px 0;
