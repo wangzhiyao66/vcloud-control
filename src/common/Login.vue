@@ -15,7 +15,12 @@ import { LoginService } from '../service/login.service';
           <el-input v-model="formLabelAlign.name" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="formLabelAlign.password" placeholder="请输入密码" autocomplete="off"></el-input>
+          <el-input
+            type="password"
+            v-model="formLabelAlign.password"
+            placeholder="请输入密码"
+            autocomplete="off"
+          ></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="success" class="login-btn" @click="submitForm('formLabelAlign')">登录</el-button>
@@ -55,7 +60,7 @@ import { LoginService } from '../service/login.service';
 </style>
 <script>
 /* eslint-disable */
-import Service from '@/service'
+import Service from "@/service";
 export default {
   name: "login",
   data() {
@@ -96,16 +101,27 @@ export default {
         // 登录成功
         if (valid) {
           console.log(this.formLabelAlign);
-          Service.setUserData(this.formLabelAlign);
-          const h = this.$createElement;
-          this.$message({
-            showClose: true,
-            message: "恭喜你，登录成功",
-            type: "success"
+          // Service.setUserData(this.formLabelAlign);
+          // 网络请求
+          Api.request({
+            url: "/data/menu.json",
+            method: "post",
+            data: {
+              name: "1"
+            }
+          }).then(res => {
+            console.log("res", res);
           });
-          this.$router.push('/home');
+
+          // const h = this.$createElement;
+          // this.$message({
+          //   showClose: true,
+          //   message: "恭喜你，登录成功",
+          //   type: "success"
+          // });
+          // this.$router.push('/home');
         } else {
-        // 登录失败
+          // 登录失败
           this.$message({
             showClose: true,
             message: "error submit!!",
@@ -122,18 +138,16 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    
+
     /**
      * 是否已经登录过
      */
-    islogin() {
-
-    }
+    islogin() {}
   },
   created() {
     const user = Service.getUserData();
-    console.log('用户信息', user.name);
-    if (user.name) this.$router.push('/home');
+    console.log("用户信息", user.name);
+    if (user.name) this.$router.push("/home");
   }
 };
 </script>
