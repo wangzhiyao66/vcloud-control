@@ -1,13 +1,12 @@
 
 // eslint-disable-next-line no-unused-vars
- const getUserInfo = (options) => {
+const getUserInfo = (options) => {
     return {
-        name : "admin",
+        name: "admin",
         password: '随便输入',
         pormise: {
             home: true
         }
-
     }
 
 }

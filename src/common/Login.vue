@@ -61,6 +61,7 @@ import { LoginService } from '../service/login.service';
 <script>
 /* eslint-disable */
 import Service from "@/service";
+import Api from "@/api";
 export default {
   name: "login",
   data() {
@@ -74,8 +75,6 @@ export default {
     var validateName = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入用户名"));
-      } else if (value != "admin") {
-        callback(new Error("用户名错误"));
       } else {
         callback();
       }
@@ -101,25 +100,33 @@ export default {
         // 登录成功
         if (valid) {
           console.log(this.formLabelAlign);
-          // Service.setUserData(this.formLabelAlign);
+
           // 网络请求
           Api.request({
-            url: "/data/menu.json",
+            url: "/control/login",
             method: "post",
-            data: {
-              name: "1"
-            }
+            data: this.formLabelAlign
           }).then(res => {
             console.log("res", res);
+            // 验证成功
+            if (res.data) {
+              const h = this.$createElement;
+              this.$message({
+                showClose: true,
+                message: "恭喜你，登录成功",
+                type: "success"
+              });
+              this.$router.push("/home");
+              Service.setUserData(this.formLabelAlign);
+            } else {
+              const h = this.$createElement;
+              this.$message({
+                showClose: true,
+                message: "用户名/密码 输入错误",
+                type: "error"
+              });
+            }
           });
-
-          // const h = this.$createElement;
-          // this.$message({
-          //   showClose: true,
-          //   message: "恭喜你，登录成功",
-          //   type: "success"
-          // });
-          // this.$router.push('/home');
         } else {
           // 登录失败
           this.$message({
